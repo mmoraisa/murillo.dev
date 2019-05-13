@@ -1,10 +1,9 @@
-import Link from 'next/link';
+import Layout from '../components/layout/main';
 
 const Blog = () => (
-  <div>
-    <p>Blog</p>
-    <Link href="/">home</Link>
-  </div>
+  <Layout>
+    <h1>Blog</h1>
+  </Layout>
 );
 
-export default Blog
+export default Blog;
