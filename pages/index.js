@@ -2,12 +2,26 @@ import { useEffect } from 'react';
 import Typed from 'react-typed';
 import Parallax from 'parallax-js';
 import Layout from '../components/layout/main';
+import { createClient }  from 'contentful';
 
 const Index = () => {
 
   useEffect(() => {
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
+
+    const client = createClient({
+      space: '3sk1ko7cy2wv',
+      accessToken: 'KKZz275zOiUk_qLcJs-VkFv5H1UegrpyMvlZyC3CXlY'
+    });
+
+    client.getEntries({
+      content_type: 'blogPost',
+      limit: 2,
+      order: '-sys.createdAt'
+    })
+      .then(console.log);
+
   }, [Parallax]);
 
   return (
