@@ -27,6 +27,16 @@ const BlogSearchPoweredBy = () => {
           pointer-events: all;
         }
 
+        @media screen and (max-width: 650px) {
+
+          .blog-search-powered-by {
+            text-align: center;
+            position: initial;
+          }
+
+
+        }
+
       `}</style>
     </Fragment>
   );

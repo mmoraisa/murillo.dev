@@ -1,13 +1,18 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import Link from 'next/link';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits } from 'react-instantsearch-dom';
+import { Configure, InstantSearch, Hits } from 'react-instantsearch-dom';
 import BlogSearchBox from '../BlogSearchBox';
 import BlogSearchHit from '../BlogSearchHit';
+import BlogSearchResults from '../BlogSearchResults';
 
 const searchClient = algoliasearch('28AME38GWP', 'fb35a1582b3871a44b929c258fe2ec24');
 
 const Header = () => {
+
+  const [query, setQuery] = useState('');
+  const [searchIsLoading, setSearchIsLoading] = useState(true);
+
   return (
     <Fragment>
       <div className="top-bar">
@@ -35,11 +40,20 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <InstantSearch searchClient={searchClient} indexName="posts">
-          <BlogSearchBox />
-          <div className="blog-search-box__hits">
-            <Hits hitComponent={BlogSearchHit} />
-          </div>
+        <InstantSearch
+          searchClient={searchClient}
+          indexName="posts"
+          onSearchStateChange={({ query }) => setQuery(query)}>
+          <Configure
+            hitsPerPage={4}
+            distinct
+          />
+          <BlogSearchBox setIsLoading={setSearchIsLoading}/>
+          <BlogSearchResults query={query}>
+            <div className="blog-search-box__hits">
+              <Hits hitComponent={BlogSearchHit} />
+            </div>
+          </BlogSearchResults>
         </InstantSearch>
       </div>
       <style jsx>{`
@@ -98,6 +112,8 @@ const Header = () => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 100%;
+            padding-bottom: 10px;
           }
 
           ul {

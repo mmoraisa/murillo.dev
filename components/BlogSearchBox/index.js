@@ -1,47 +1,59 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import BlogSearchPoweredBy from '../BlogSearchPoweredBy';
 
-const BlogSearchBox = ({ currentRefinement, refine }) => (
-  <Fragment>
-    <form noValidate action="" role="search">
-      <input
-        type="search"
-        value={currentRefinement}
-        onChange={event => refine(event.currentTarget.value)}
-        placeholder="search in blog..."
-      />
-      <BlogSearchPoweredBy />
-    </form>
-    <style jsx>{`
+const BlogSearchBox = ({ currentRefinement, isSearchStalled, refine, setIsLoading }) => {
 
-      input[type="search"] {
-        background: transparent;
-        color: #687e98;
-        font-family: stolzl,sans-serif;
-        font-size: 16px;
-        width: 315px;
-        margin-right: 10px;
-        padding: 0 0 10px 0;
-        border: none;
-      }
+  useEffect(() => {
+    setIsLoading(isSearchStalled);
+  }, [isSearchStalled]);
 
-      input[type="search"]:active,
-      input[type="search"]:focus {
-        outline: none;
-      }
-
-      @media screen and (max-width: 650px) {
+  return (
+    <Fragment>
+      <form noValidate action="" onSubmit={(evt) => { evt.preventDefault() }} role="search">
+        <input
+          className={isSearchStalled ? '--is-search-stalled' : ''}
+          type="search"
+          value={currentRefinement}
+          onChange={event => refine(event.currentTarget.value)}
+          placeholder="search in blog..."
+        />
+        <BlogSearchPoweredBy />
+      </form>
+      <style jsx>{`
 
         input[type="search"] {
-          margin: 0;
-          text-align: center;
+          background: transparent;
+          color: #687e98;
+          font-family: stolzl,sans-serif;
+          font-size: 16px;
+          width: 315px;
+          margin-right: 10px;
+          padding: 0 0 10px 0;
+          border: none;
         }
 
-      }
+        input[type="search"]:active,
+        input[type="search"]:focus {
+          outline: none;
+        }
 
-    `}</style>
-  </Fragment>
-);
+        input[type="search"].--is-search-stalled {
+          color: #56c6b6;
+        }
+
+        @media screen and (max-width: 650px) {
+
+          input[type="search"] {
+            margin: 0;
+            text-align: center;
+          }
+
+        }
+
+      `}</style>
+    </Fragment>
+  );
+}
 
 export default connectSearchBox(BlogSearchBox);
