@@ -1,4 +1,3 @@
 node_modules
 out
-defaults/AlgoliaKeys.js
-defaults/ContentfulKeys.js
+defaults

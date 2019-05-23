@@ -407,7 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALGOLIA_APPLICATION_ID", function() { return ALGOLIA_APPLICATION_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALGOLIA_API_KEY", function() { return ALGOLIA_API_KEY; });
 var ALGOLIA_APPLICATION_ID = '28AME38GWP';
-var ALGOLIA_API_KEY = 'fb35a1582b3871a44b929c258fe2ec24';
+var ALGOLIA_API_KEY = '61e0dda6b5826930ea92f7399e2ef304';
 
 /***/ }),
 
@@ -423,7 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTENTFUL_SPACE_ID", function() { return CONTENTFUL_SPACE_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTENTFUL_ACCESS_TOKEN", function() { return CONTENTFUL_ACCESS_TOKEN; });
 var CONTENTFUL_SPACE_ID = '3sk1ko7cy2wv';
-var CONTENTFUL_ACCESS_TOKEN = 'KKZz275zOiUk_qLcJs-VkFv5H1UegrpyMvlZyC3CXlY';
+var CONTENTFUL_ACCESS_TOKEN = 'WFs08eirFwvAcY6p7wrwLYO402fEAnZPIU8wKUQq30o';
 
 /***/ }),
 
