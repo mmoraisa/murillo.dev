@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "algoliasearch": "^3.33.0",
     "animate.css": "^3.7.0",
     "aos": "^2.3.4",
     "contentful": "^7.6.0",
@@ -23,6 +24,7 @@
     "react": "^16.8.6",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.8.6",
+    "react-instantsearch-dom": "^5.6.0",
     "react-typed": "^1.1.2"
   }
 }

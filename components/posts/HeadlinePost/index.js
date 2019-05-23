@@ -22,6 +22,8 @@ const HeadlinePost = ({ description, imageUrl, tags, title }) => {
           overflow: hidden;
           padding: 20px;
           background: url(${imageUrl});
+          background-size: cover;
+          background-position: center;
           font-family: stolzl, sans-serif;
           color: #ffffff;
           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);

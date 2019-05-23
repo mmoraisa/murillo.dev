@@ -75,7 +75,7 @@ const Index = () => {
         </div>
       </div>
       <div className="latest-posts">
-        <h2>Latest<br/>Posts</h2>
+        <h2 data-aos="fade-up">Latest<br/>Posts</h2>
         <ul>
           {
             showingLatestPosts.splice(0, 2).map(post => (
