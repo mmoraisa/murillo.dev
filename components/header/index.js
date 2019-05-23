@@ -5,8 +5,9 @@ import { Configure, InstantSearch, Hits } from 'react-instantsearch-dom';
 import BlogSearchBox from '../BlogSearchBox';
 import BlogSearchHit from '../BlogSearchHit';
 import BlogSearchResults from '../BlogSearchResults';
+import { ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY } from '../../defaults/AlgoliaKeys';
 
-const searchClient = algoliasearch('28AME38GWP', 'fb35a1582b3871a44b929c258fe2ec24');
+const searchClient = algoliasearch(ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY);
 
 const Header = () => {
 

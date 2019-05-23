@@ -6,6 +6,7 @@ import Parallax from 'parallax-js';
 import { createClient }  from 'contentful';
 import Layout from '../components/layout/main';
 import HeadlinePost from '../components/posts/HeadlinePost';
+import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from '../defaults/ContentfulKeys';
 
 const Index = () => {
 
@@ -20,8 +21,8 @@ const Index = () => {
     var parallaxInstance = new Parallax(scene);
 
     const client = createClient({
-      space: '3sk1ko7cy2wv',
-      accessToken: 'KKZz275zOiUk_qLcJs-VkFv5H1UegrpyMvlZyC3CXlY'
+      space: CONTENTFUL_SPACE_ID,
+      accessToken: CONTENTFUL_ACCESS_TOKEN
     });
 
     client.getEntries({

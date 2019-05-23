@@ -1,0 +1,2 @@
+export const ALGOLIA_APPLICATION_ID = '28AME38GWP';
+export const ALGOLIA_API_KEY = 'fb35a1582b3871a44b929c258fe2ec24';
