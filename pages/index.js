@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import Typed from 'react-typed';
+import Link from 'next/link';
+import AOS from 'aos';
 import Parallax from 'parallax-js';
-import Layout from '../components/layout/main';
 import { createClient }  from 'contentful';
+import Layout from '../components/layout/main';
 import HeadlinePost from '../components/posts/HeadlinePost';
 
 const Index = () => {
 
   const [latestPosts, setLatestPosts] = useState([]);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     var scene = document.getElementById('scene');
@@ -82,10 +88,12 @@ const Index = () => {
                 />
             ))
           }
-          <div className="latest-posts__show-more">
+          <div className="latest-posts__show-more" data-aos="fade-up">
             <h3>Interested!? So why do not you join my blog?</h3>
             <span>There you can learn more about the world of technology and its news</span>
-            <button>View Blog</button>
+            <Link href="blog">
+              <button>View Blog</button>
+            </Link>
           </div>
           {
             showingLatestPosts.map(post => (
@@ -139,7 +147,6 @@ const Index = () => {
         .latest-posts ul {
           display: flex;
           flex-wrap: wrap;
-          padding: 0;
           justify-content: space-around;
           padding: 30px 80px;
         }
@@ -215,6 +222,23 @@ const Index = () => {
           h1 {
             font-size: 18vw;
             line-height: 18vw;
+          }
+
+        }
+
+        @media screen and (max-width: 900px) {
+
+          .latest-posts ul {
+            margin-top: -20px;
+            padding: 20px;
+          }
+
+          .latest-posts__show-more {
+            width: 100%;
+            height: initial;
+            margin: 20px;
+            padding: 0;
+            order: 1;
           }
 
         }

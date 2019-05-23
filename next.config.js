@@ -3,8 +3,8 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/blog': { page: '/blog' },
-      '/post/1': { page: '/post', query: { slug: 1 } },
-      '/post/2': { page: '/post', query: { slug: 2 } },
+      '/blog/1': { page: '/post', query: { slug: 1 } },
+      '/blog/2': { page: '/post', query: { slug: 2 } },
     }
   }
 };
