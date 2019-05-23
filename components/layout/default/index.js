@@ -3,9 +3,12 @@ import Head from 'next/head';
 const Default = ({ children }) => (
   <div>
     <Head>
+      <title>Murillo de Morais - Personal Page</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Hi, I'm Murillo, a fullstack programmer with a lot of experiences in web development. In this personal page I share some knowledges and technology news." />
       <meta charSet="utf-8" />
       <link rel="stylesheet" href="https://use.typekit.net/yvy5dkt.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     </Head>
     <style jsx global>{`
       html, body {

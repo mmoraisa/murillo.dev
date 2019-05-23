@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Typed from 'react-typed';
 import Parallax from 'parallax-js';
 import Layout from '../components/layout/main';
 import { createClient }  from 'contentful';
+import HeadlinePost from '../components/posts/HeadlinePost';
 
 const Index = () => {
+
+  const [latestPosts, setLatestPosts] = useState([]);
 
   useEffect(() => {
     var scene = document.getElementById('scene');
@@ -17,12 +20,17 @@ const Index = () => {
 
     client.getEntries({
       content_type: 'blogPost',
-      limit: 2,
+      limit: 3,
       order: '-sys.createdAt'
     })
-      .then(console.log);
+    .then(function(response) {
+      console.log(response);
+      setLatestPosts(response.items);
+    });
 
   }, [Parallax]);
+
+  let showingLatestPosts = latestPosts;
 
   return (
     <Layout>
@@ -60,9 +68,42 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <div className="latest-posts">
+        <h2>Latest<br/>Posts</h2>
+        <ul>
+          {
+            showingLatestPosts.splice(0, 2).map(post => (
+              <HeadlinePost
+                key={post.sys.id}
+                description={post.fields.description}
+                imageUrl={post.fields.heroImage.fields.file.url}
+                tags={post.fields.tags}
+                title={post.fields.title}
+                />
+            ))
+          }
+          <div className="latest-posts__show-more">
+            <h3>Interested!? So why do not you join my blog?</h3>
+            <span>There you can learn more about the world of technology and its news</span>
+            <button>View Blog</button>
+          </div>
+          {
+            showingLatestPosts.map(post => (
+              <HeadlinePost
+                key={post.sys.id}
+                description={post.fields.description}
+                imageUrl={post.fields.heroImage.fields.file.url}
+                tags={post.fields.tags}
+                title={post.fields.title}
+                />
+            ))
+          }
+        </ul>
+      </div>
       <style jsx>{`
         h1,
-        h2 {
+        h2,
+        h3 {
           font-family: stolzl, sans-serif;
           font-weight: 700;
           font-style: normal;
@@ -81,6 +122,64 @@ const Index = () => {
         h2 {
           font-size: 28px;
           margin: 0 0 10px 10px;
+        }
+
+        .latest-posts h2 {
+          font-size: 60px;
+          line-height: 50px;
+          margin: 10px;
+          text-align: right;
+          padding: 0 40px 0 calc(40px + 5%);
+          display: inline-block;
+          background-image: linear-gradient(to bottom,#4CB8C4,#3CD3AD);
+          color: transparent;
+          -webkit-background-clip: text;
+        }
+
+        .latest-posts ul {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0;
+          justify-content: space-around;
+          padding: 30px 80px;
+        }
+
+        .latest-posts__show-more {
+          width: calc(30vw - 40px);
+          height: calc(35vw - 40px);
+          margin: 20px;
+          padding: 20px;
+        }
+
+        .latest-posts__show-more h3 {
+          font-size: 22px;
+          margin: 0 0 5px 0;
+        }
+
+        .latest-posts__show-more * {
+          font-family: stolzl,sans-serif;
+        }
+
+        .latest-posts__show-more button {
+          background: #2d6ae3;
+          padding: 10px 40px 10px 20px;
+          font-size: 18px;
+          color: #ffffff;
+          display: block;
+          margin: 20px 0 0 0;
+          border-radius: 5px;
+          transition: .3s all ease;
+          cursor: pointer;
+        }
+
+        .latest-posts__show-more button:hover {
+          transform: scale(1.15);
+          box-shadow: 5px 5px 20px rgba(0,0,0,.3);
+        }
+
+        .latest-posts__show-more button:focus,
+        .latest-posts__show-more button:active {
+          outline: none;
         }
 
         .hero {
