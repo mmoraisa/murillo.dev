@@ -33,6 +33,7 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
           border-radius: 10px;
           box-shadow: 5px 5px 20px rgba(0,0,0,.3);
           transition: .3s all ease;
+          cursor: pointer;
         }
 
         .headline-post:hover {
@@ -55,6 +56,7 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
           align-items: flex-start;
           justify-content: space-between;
           height: 100%;
+          pointer-events: none;
         }
 
         .headline-post__info__span {

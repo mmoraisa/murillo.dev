@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
+import Link from 'next/link';
 import { ENGLISH } from '../../defaults/Languages';
 
 const BlogSearchHit = ({ hit }) => {
   return (
     <Fragment>
-      <div className="blog-search-hit">
-        <span className="blog-search-hit__title">{hit.fields.title[ENGLISH]}</span>
-        <span className="blog-search-hit__description">{hit.fields.description[ENGLISH]}</span>
-        <span className="blog-search-hit__tags">{hit.fields.tags[ENGLISH]}</span>
-      </div>
+      <Link href={`/blog/${hit.fields.slug[ENGLISH]}`}>
+        <div className="blog-search-hit">
+          <span className="blog-search-hit__title">{hit.fields.title[ENGLISH]}</span>
+          <span className="blog-search-hit__description">{hit.fields.description[ENGLISH]}</span>
+          <span className="blog-search-hit__tags">{hit.fields.tags[ENGLISH]}</span>
+        </div>
+      </Link>
       <style jsx>{`
 
         .blog-search-hit {

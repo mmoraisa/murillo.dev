@@ -1,11 +1,11 @@
+import React, { Fragment } from 'react';
 import Header from '../../header';
-import Default from '../default';
 
 const Layout = ({ children }) => (
-  <Default>
+  <Fragment>
     <Header />
     { children }
-  </Default>
+  </Fragment>
 );
 
 export default Layout;
