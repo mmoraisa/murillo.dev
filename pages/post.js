@@ -6,6 +6,7 @@ import Error from 'next/error';
 import Layout from '../components/layout/main';
 import AOS from 'aos';
 import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from '../defaults/ContentfulKeys';
+import Author from '../components/posts/Author';
 
 const Post = withRouter(({ errorCode, post, router }) => {
 
@@ -16,6 +17,11 @@ const Post = withRouter(({ errorCode, post, router }) => {
   if(errorCode) {
     return <Error statusCode={errorCode} />;
   }
+
+  const publishDate = post.fields.publishDate;
+  const dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})T(?<hour>[0-9]{2}):(?<minute>[0-9]{2})/;
+
+  const publishDateGroups = publishDate.match(dateRegexp).groups;
 
   return (
     <Fragment>
@@ -29,18 +35,24 @@ const Post = withRouter(({ errorCode, post, router }) => {
           </div>
           <div className="post__content">
             <h1>{post.fields.title}</h1>
+            <span className="post__content__publish-date">{`${publishDateGroups.month}/${publishDateGroups.day}/${publishDateGroups.year} at ${publishDateGroups.hour}:${publishDateGroups.minute}`}</span>
             <p className="post__content__description">{post.fields.description}</p>
             <ReactMarkdown source={post.fields.body} />
-            {
-              post.fields.source &&
-              <div className="post__source">
-                Source: <a href={post.fields.source} target="_blank">{post.fields.source}</a>
-              </div>
-            }
+            <div className="post__content__footer">
+              <div className="post__tags">{post.fields.tags.join(', ')}</div>
+              {
+                post.fields.source &&
+                <div className="post__source">
+                  Source: <a href={post.fields.source} target="_blank">{post.fields.source}</a>
+                </div>
+              }
+            </div>
           </div>
-          <div className="post__author">Sobre o autor: {JSON.stringify(post.fields.author)}</div>
-          <div className="post__tags">{post.fields.tags.join(', ')}</div>
         </div>
+        <Author
+          author={post.fields.author}
+          smallScreenStyles="margin: 0"
+          styles="margin: 70px 70px 70px calc(50% - 430px)" />
       </Layout>
       <style jsx>{`
 
@@ -108,17 +120,29 @@ const Post = withRouter(({ errorCode, post, router }) => {
           word-break: break-word;
         }
 
+        .post__content__publish-date {
+          font-family: arial;
+          font-size: 11px;
+          color: #bbbbbb;
+        }
+
         .post__content__description {
-          margin: 10px 0 30px 0;
+          margin: 0 0 30px 0;
           font-weight: 700;
         }
 
+        .post__content__footer {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 50px;
+          align-items: center;
+          color: #a0a0a0;
+        }
+
         .post__source {
-          color: #bfbfbf;
           text-transform: lowercase;
           font-size: 12px;
           text-align: right;
-          margin-top: 40px;
         }
 
         .post__source a {
@@ -130,6 +154,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
 
           h1 {
             font-size: 36px;
+            line-height: 36px;
             margin: 0;
             min-height: initial;
           }
