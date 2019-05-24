@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
+import Head from 'next/head';
 import { withRouter } from 'next/router';
+import Link from 'next/link';
 import { createClient }  from 'contentful';
 import ReactMarkdown from 'react-markdown';
 import Error from 'next/error';
@@ -25,12 +27,18 @@ const Post = withRouter(({ errorCode, post, router }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>{post.fields.title} - Murillo de Morais Blog</title>
+        <meta name="description" content={post.fields.metaDescription} />
+        <meta name="og:description" content={post.fields.metaDescription} />
+      </Head>
       <Layout>
         <div className="post"
               data-aos="fade-up">
           <div className="post__header">
             <img
               className="post__image"
+              alt={post.fields.heroImage.fields.title}
               src={`https:${post.fields.heroImage.fields.file.url}?w=300&h=300&fit=thumb`} />
           </div>
           <div className="post__content">
@@ -49,10 +57,18 @@ const Post = withRouter(({ errorCode, post, router }) => {
             </div>
           </div>
         </div>
+        <div className="show-more" data-aos="fade-up">
+          <h3>Did you liked!? So why don't you see more news and articles like this on my blog?</h3>
+          <span>There you can learn more about the world of technology and its news</span>
+          <Link href="/blog">
+            <button>View blog</button>
+          </Link>
+        </div>
         <Author
+          data-aos-anchor=".show-more"
           author={post.fields.author}
-          smallScreenStyles="margin: 0"
-          styles="margin: 70px 70px 70px calc(50% - 430px)" />
+          smallScreenStyles="margin: auto; float: none"
+          styles="margin: 70px 20px 70px 0; float: right;" />
       </Layout>
       <style jsx>{`
 
@@ -150,6 +166,47 @@ const Post = withRouter(({ errorCode, post, router }) => {
           text-decoration: none;
         }
 
+        .show-more {
+          color: rgba(0,0,0,.84);
+          width: calc(30vw - 40px);
+          height: calc(35vw - 40px);
+          margin: 20px;
+          padding: 20px;
+          float: right;
+          margin-right: calc(50% - 450px);
+        }
+
+        .show-more h3 {
+          font-size: 22px;
+          margin: 0 0 5px 0;
+        }
+
+        .show-more * {
+          font-family: stolzl,sans-serif;
+        }
+
+        .show-more button {
+          background: #2d6ae3;
+          padding: 10px 40px 10px 20px;
+          font-size: 18px;
+          color: #ffffff;
+          display: block;
+          margin: 20px 0 0 0;
+          border-radius: 5px;
+          transition: .3s all ease;
+          cursor: pointer;
+        }
+
+        .show-more button:hover {
+          transform: scale(1.15);
+          box-shadow: 5px 5px 20px rgba(0,0,0,.3);
+        }
+
+        .show-more button:focus,
+        .show-more button:active {
+          outline: none;
+        }
+
         @media screen and (max-width: 900px) {
 
           h1 {
@@ -170,6 +227,13 @@ const Post = withRouter(({ errorCode, post, router }) => {
             margin: -130px 0 0 0;
             padding: 20px;
             z-index: 1;
+          }
+
+          .show-more {
+            float: none;
+            width: calc(100% - 80px);
+            height: initial;
+            margin: 20px 0 40px 20px;
           }
 
         }

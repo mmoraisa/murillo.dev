@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Typed from 'react-typed';
 import Link from 'next/link';
 import AOS from 'aos';
@@ -31,7 +32,6 @@ const Index = () => {
       order: '-sys.createdAt'
     })
     .then(function(response) {
-      console.log(response);
       setLatestPosts(response.items);
     });
 
@@ -41,6 +41,11 @@ const Index = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Murillo de Morais - Personal Page</title>
+        <meta name="description" content="Hi, I'm Murillo, a fullstack programmer with a lot of experiences in web development. In this personal page I share some knowledges and technology news." />
+        <meta name="og:description" content="Hi, I'm Murillo, a fullstack programmer with a lot of experiences in web development. In this personal page I share some knowledges and technology news." />
+      </Head>
       <div className="hero">
         <div className="hero__texts">
           <Typed
@@ -94,7 +99,7 @@ const Index = () => {
             <h3>Interested!? So why do not you join my blog?</h3>
             <span>There you can learn more about the world of technology and its news</span>
             <Link href="blog">
-              <button>View Blog</button>
+              <button>View blog</button>
             </Link>
           </div>
           {
@@ -140,7 +145,7 @@ const Index = () => {
           line-height: 50px;
           margin: 10px;
           text-align: right;
-          padding: 0 40px 0 calc(40px + 5%);
+          padding: 0 40px 0 calc(40px + 15%);
           display: inline-block;
           background-image: linear-gradient(to bottom,#4CB8C4,#3CD3AD);
           color: transparent;
@@ -151,7 +156,7 @@ const Index = () => {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
-          padding: 30px 80px;
+          padding: 30px 15%;
         }
 
         .latest-posts__show-more {

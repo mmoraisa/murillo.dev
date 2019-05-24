@@ -19,8 +19,8 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
       <style jsx>{`
         .headline-post {
           list-style-type: none;
-          width: calc(30vw - 40px);
-          height: calc(35vw - 40px);
+          width: calc(25vw - 40px);
+          height: calc(30vw - 40px);
           margin: 20px 20px 7vw 20px;
           overflow: hidden;
           padding: 20px;

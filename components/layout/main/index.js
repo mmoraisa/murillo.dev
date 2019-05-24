@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import Header from '../../header';
+import TopBar from '../../TopBar';
 
 const Layout = ({ children }) => (
   <Fragment>
-    <Header />
+    <TopBar />
     { children }
   </Fragment>
 );

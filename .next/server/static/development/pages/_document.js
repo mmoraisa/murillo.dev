@@ -2294,12 +2294,9 @@ function (_Document) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["Html"], {
         lang: _defaults_Languages__WEBPACK_IMPORTED_MODULE_10__["ENGLISH"]
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["Head"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("title", null, "Murillo de Morais - Personal Page"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("meta", {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["Head"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("meta", {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("meta", {
-        name: "description",
-        content: "Hi, I'm Murillo, a fullstack programmer with a lot of experiences in web development. In this personal page I share some knowledges and technology news."
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("meta", {
         name: "theme-color",
         content: "#4CB8C4"
@@ -2310,13 +2307,16 @@ function (_Document) {
         href: "https://use.typekit.net/yvy5dkt.css"
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("link", {
         rel: "stylesheet",
+        href: "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
+        integrity: "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay",
+        crossorigin: "anonymous"
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("link", {
+        rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css"
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("link", {
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("style", null, "\n            html, body {\n              min-height: 100vh;\n              width: 100%;\n              padding: 10px;\n              margin: 0;\n              box-sizing: border-box;\n              position: absolute;\n              top: 0;\n              left: 0;\n            }\n          ")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("body", {
-        className: "custom_class"
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["Main"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["NextScript"], null)));
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("style", null, "\n            html, body {\n              min-height: 100vh;\n              width: 100%;\n              padding: 10px;\n              margin: 0;\n              box-sizing: border-box;\n              position: absolute;\n              top: 0;\n              left: 0;\n            }\n\n            img {\n              max-width: 100%;\n            }\n          ")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["Main"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_9__["NextScript"], null)));
     }
   }], [{
     key: "getInitialProps",

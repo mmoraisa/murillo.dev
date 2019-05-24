@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import AOS from 'aos';
 
-const Author = ({ author, smallScreenStyles, styles }) => {
+const Author = ({ author, smallScreenStyles, styles, ...props }) => {
 
   useEffect(() => {
     AOS.init();
@@ -9,26 +9,44 @@ const Author = ({ author, smallScreenStyles, styles }) => {
 
   return (
     <Fragment>
-      <div className="author" data-aos="fade-up">
+      <div className="author" data-aos="fade-up" {...props}>
         <h2>About the author</h2>
         <div>
-          <img className="author__image" src={`${author.fields.image.fields.file.url}?w=100&h=100&fit=thumb`} />
+          <div className="author__avatar">
+            <img
+              className="author__image"
+              alt={author.fields.image.fields.title}
+              src={`${author.fields.image.fields.file.url}?w=100&h=100&fit=thumb`} />
+            <div className="author__contacts">
+              <a
+                href={`https://www.linkedin.com/in/${author.fields.linkedin}`}
+                target="_blank"
+                className="author__contact">
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a
+                href={`https://github.com/${author.fields.github}`}
+                target="_blank"
+                className="author__contact">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href={`mailto:${author.fields.email}`} className="author__contact">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
           <div className="author__info">
             <span className="author__info__name">{author.fields.name}</span>
             <span className="author__info__title">{author.fields.title}</span>
             <span className="author__info__company">{author.fields.company}</span>
             <span className="author__info__short-bio">{author.fields.shortBio}</span>
-            <div className="author__info__contacts">
-
-            </div>
           </div>
         </div>
-        {/*JSON.stringify(author.fields)*/}
       </div>
       <style jsx>{`
 
         .author {
-          width: 500px;
+          width: 420px;
           background: #fff;
           box-shadow: 5px 5px 20px rgba(0,0,0,.2);
           border-radius: 10px;
@@ -56,7 +74,25 @@ const Author = ({ author, smallScreenStyles, styles }) => {
           border-radius: 50%;
         }
 
+        .author__contacts {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 10px;
+          font-size: 20px;
+          padding: 0 10px;
+        }
+
+        .author__contact {
+          color: #adadad;
+          transition: .25s color ease;
+        }
+
+        .author__contact:hover {
+          color: #555555;
+        }
+
         .author__info {
+          flex: 1;
           padding: 0 0 0 25px;
           display: flex;
           flex-direction: column;
