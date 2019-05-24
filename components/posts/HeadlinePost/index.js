@@ -1,18 +1,21 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
-const HeadlinePost = ({ description, imageUrl, tags, title }) => {
+const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
   return (
     <Fragment>
-      <li className="headline-post" data-aos="fade-up">
-        <div className="headline-post__info">
-          <div className="headline-post__upper-info">
-            <span className="headline-post__info__span">{ tags.join(' & ') }</span>
-            <span className="headline-post__info__title">{ title }</span>
+      <Link prefetch href={`/blog/${slug}`}>
+        <li className="headline-post" data-aos="fade-up">
+          <div className="headline-post__info">
+            <div className="headline-post__upper-info">
+              <span className="headline-post__info__span">{ tags.join(' & ') }</span>
+              <span className="headline-post__info__title">{ title }</span>
+            </div>
+            <div className="headline-post__description">{ description }</div>
           </div>
-          <div className="headline-post__description">{ description }</div>
-        </div>
-      </li>
+        </li>
+      </Link>
       <style jsx>{`
         .headline-post {
           list-style-type: none;
@@ -91,6 +94,7 @@ const HeadlinePost = ({ description, imageUrl, tags, title }) => {
 HeadlinePost.propTypes = {
   description: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
 };

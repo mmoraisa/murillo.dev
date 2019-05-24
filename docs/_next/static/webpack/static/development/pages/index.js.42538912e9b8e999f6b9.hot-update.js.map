@@ -1,1 +1,0 @@
-{"version":3,"file":"static/webpack/static/development/pages/index.js.42538912e9b8e999f6b9.hot-update.js","sources":["webpack:///./defaults/AlgoliaKeys.js"],"sourcesContent":["export const ALGOLIA_APPLICATION_ID = '28AME38GWP';\nexport const ALGOLIA_API_KEY = '61e0dda6b5826930ea92f7399e2ef304';\n"],"mappings":";;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AACA;;;;A","sourceRoot":""}

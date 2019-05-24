@@ -84,6 +84,7 @@ const Index = () => {
                 key={post.sys.id}
                 description={post.fields.description}
                 imageUrl={post.fields.heroImage.fields.file.url}
+                slug={post.fields.slug}
                 tags={post.fields.tags}
                 title={post.fields.title}
                 />
@@ -102,6 +103,7 @@ const Index = () => {
                 key={post.sys.id}
                 description={post.fields.description}
                 imageUrl={post.fields.heroImage.fields.file.url}
+                slug={post.fields.slug}
                 tags={post.fields.tags}
                 title={post.fields.title}
                 />

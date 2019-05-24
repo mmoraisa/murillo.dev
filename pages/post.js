@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { withRouter } from 'next/router';
+import { createClient }  from 'contentful';
 import Error from 'next/error';
-
-import fetch from 'isomorphic-unfetch';
+import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from '../defaults/ContentfulKeys';
 
 const Post = withRouter(({ errorCode, post, router }) => {
 
@@ -13,7 +13,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
   return (
     <Fragment>
       <h1>{router.query.slug}</h1>
-      <p>{JSON.stringify(post)}</p>
+      <p>{JSON.stringify(post.fields)}</p>
     </Fragment>
   );
 });
@@ -21,18 +21,19 @@ const Post = withRouter(({ errorCode, post, router }) => {
 Post.getInitialProps = async ({ query }) => {
   const { slug } = query;
 
-    const response = await fetch(`http://5cd9d44beb39f80014a74eb4.mockapi.io/blog/posts/${slug}`);
+  const client = createClient({
+    space: CONTENTFUL_SPACE_ID,
+    accessToken: CONTENTFUL_ACCESS_TOKEN
+  });
 
-    if(response.ok) {
-      return {
-        post: await response.json(),
-      };
-    }
-    else {
-      return {
-        errorCode: response.status,
-      };
-    }
+  const entries = await client.getEntries({
+    content_type: 'blogPost',
+    'fields.slug[in]': slug,
+  });
+
+  return {
+    post: entries.items[0]
+  };
 }
 
 export default Post;

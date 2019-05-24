@@ -21,17 +21,7 @@ const Header = () => {
           <ul>
             <li>
               <Link prefetch href="/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link prefetch href="/blog">
-                <a>blog</a>
-              </Link>
-            </li>
-            <li>
-              <Link prefetch href="/blog">
-                <a>blog</a>
+                <a>home</a>
               </Link>
             </li>
             <li>
@@ -80,12 +70,12 @@ const Header = () => {
 
         ul {
           display: flex;
-          justify-content: space-between;
           align-items: center;
         }
 
         li {
           display: block;
+          margin-right: 20px;
         }
 
         a {
