@@ -5,7 +5,7 @@ import Link from 'next/link';
 const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
   return (
     <Fragment>
-      <Link prefetch href={`/blog/${slug}`}>
+      <Link href={`/blog/${slug}`}>
         <li className="headline-post" data-aos="fade-up">
           <div className="headline-post__info">
             <div className="headline-post__upper-info">

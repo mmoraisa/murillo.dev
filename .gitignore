@@ -1,3 +1,4 @@
 node_modules
 out
 defaults
+next.config.js
