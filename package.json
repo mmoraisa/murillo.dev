@@ -25,6 +25,7 @@
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.8.6",
     "react-instantsearch-dom": "^5.6.0",
+    "react-markdown": "^4.0.8",
     "react-typed": "^1.1.2"
   }
 }

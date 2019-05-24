@@ -155,6 +155,7 @@ const Index = () => {
         }
 
         .latest-posts__show-more {
+          color: rgba(0,0,0,.84);
           width: calc(30vw - 40px);
           height: calc(35vw - 40px);
           margin: 20px;

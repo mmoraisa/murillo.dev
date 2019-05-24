@@ -5,7 +5,7 @@ const BlogSearchPoweredBy = () => {
   return (
     <Fragment>
       <div className="blog-search-powered-by">
-        Search powered by <a href="https://www.algolia.com">Algolia</a>
+        Search powered by <a href="https://www.algolia.com" target="_blank">Algolia</a>
       </div>
       <style jsx>{`
 

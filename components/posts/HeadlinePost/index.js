@@ -24,7 +24,7 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
           margin: 20px 20px 7vw 20px;
           overflow: hidden;
           padding: 20px;
-          background: url(${imageUrl});
+          background: url(${imageUrl}?w=500&h=600&fit=thumb);
           background-size: cover;
           background-position: center;
           font-family: stolzl, sans-serif;
