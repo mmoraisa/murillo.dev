@@ -10,7 +10,7 @@ const DoubleBlogPost = ({ even, post }) => {
 
   return (
     <Fragment>
-      <Link prefetch href={`/${post.fields.slug}`}>
+      <Link prefetch href={`/blog/${post.fields.slug}`}>
         <div className={`post ${even ? '--is-even' : ''}`} data-aos="fade-up">
           <div className="post__content">
             <span className="post__content__date">18/05/2019</span>
