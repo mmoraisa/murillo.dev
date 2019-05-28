@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import AOS from 'aos';
+import Link from 'next/link';
 
 const TripleBlogPost = ({ post }) => {
 
@@ -9,16 +10,18 @@ const TripleBlogPost = ({ post }) => {
 
   return (
     <Fragment>
-      <div className="post" data-aos="fade-up">
-        <div className="post__content">
-          <span className="post__content__date">18/05/2019</span>
-          <span className="post__content__title">{post.fields.title}</span>
-          <div className="post__content__separator"></div>
-          <span className="post__content__description">{post.fields.description}</span>
+      <Link prefetch href={`/${post.fields.slug}`}>
+        <div className="post" data-aos="fade-up">
+          <div className="post__content">
+            <span className="post__content__date">18/05/2019</span>
+            <span className="post__content__title">{post.fields.title}</span>
+            <div className="post__content__separator"></div>
+            <span className="post__content__description">{post.fields.description}</span>
+          </div>
+          <div className="post__image"></div>
+          <div className="post__video"></div>
         </div>
-        <div className="post__image"></div>
-        <div className="post__video"></div>
-      </div>
+      </Link>
       <style jsx>{`
 
         .post {
