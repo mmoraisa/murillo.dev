@@ -53163,18 +53163,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ 1:
-/*!********************!*\
-  !*** os (ignored) ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 3:
+/***/ 0:
 /*!****************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Findex.js ***!
   \****************************************************************************************************************************/
@@ -53183,6 +53172,17 @@ var Index = function Index() {
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Findex.js!./");
 
+
+/***/ }),
+
+/***/ 1:
+/*!********************!*\
+  !*** os (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ }),
 
@@ -53197,5 +53197,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

@@ -59494,18 +59494,6 @@ function () {
 
 /***/ }),
 
-/***/ 0:
-/*!*******************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js ***!
-  \*******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js!./");
-
-
-/***/ }),
-
 /***/ 1:
 /*!********************!*\
   !*** os (ignored) ***!
@@ -59514,6 +59502,18 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost&a
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+
+/***/ 4:
+/*!*******************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost&absolutePagePath=%2FUsers%2Fmmorais%2FDocuments%2Fwebsite%2Fpages%2Fpost.js!./");
+
 
 /***/ }),
 
@@ -59528,5 +59528,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=post.js.map
