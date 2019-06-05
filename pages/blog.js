@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'next/router'
 import { createClient }  from 'contentful';
 import Head from 'next/head';
 import Layout from '../components/layout/main';
 import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from '../defaults/ContentfulKeys';
 import BlogPost from '../components/posts/BlogPost';
+import { DEFAULT_LANGUAGE } from '../defaults/Languages';
 
-const Blog = () => {
+const Blog = ({ router }) => {
 
   const [posts, setPosts] = useState([]);
 
@@ -18,11 +20,17 @@ const Blog = () => {
 
     client.getEntries({
       content_type: 'blogPost',
-      order: '-sys.createdAt'
+      order: '-sys.createdAt',
+      locale: router.query.lang || DEFAULT_LANGUAGE,
     })
     .then(function(response) {
       setPosts(response.items);
     });
+
+    document.documentElement.setAttribute(
+      'lang',
+      router.query.lang || DEFAULT_LANGUAGE
+    );
 
   }, []);
 
@@ -85,4 +93,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default withRouter(Blog);

@@ -1,17 +1,34 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 import { ENGLISH } from '../../defaults/Languages';
+import * as Language from '../../defaults/Language';
 
 const BlogSearchHit = ({ hit }) => {
   return (
     <Fragment>
-      <Link href={`/blog/${hit.fields.slug[ENGLISH]}`}>
-        <div className="blog-search-hit">
-          <span className="blog-search-hit__title">{hit.fields.title[ENGLISH]}</span>
-          <span className="blog-search-hit__description">{hit.fields.description[ENGLISH]}</span>
-          <span className="blog-search-hit__tags">{hit.fields.tags[ENGLISH]}</span>
-        </div>
-      </Link>
+      <Language.Consumer>
+        {({ locale }) => (
+          hit.fields.slug &&
+          <Link href={`/blog/${hit.fields.slug[locale]}`}>
+            <div className="blog-search-hit">
+              <span className="blog-search-hit__title">{hit.fields.title[locale]}</span>
+              <span className="blog-search-hit__description">{hit.fields.description[locale]}</span>
+              <span className="blog-search-hit__tags">
+                {
+                  hit.fields.tags[locale] &&
+                  hit.fields.tags[locale].map(tag => (
+                    <div
+                      key={tag}
+                      className="blog-search-hit__tags__tag">
+                      {tag}
+                    </div>
+                  ))
+                }
+              </span>
+            </div>
+          </Link>
+        )}
+      </Language.Consumer>
       <style jsx>{`
 
         .blog-search-hit {
@@ -52,7 +69,15 @@ const BlogSearchHit = ({ hit }) => {
         .blog-search-hit__tags {
           margin-top: 3px;
           font-size: 10px;
-          color: #2d6ae3;
+          display: flex;
+        }
+
+        .blog-search-hit__tags__tag {
+          color: #8e8e8e;
+          border: 1px solid #e0e0e0;
+          border-radius: 5px;
+          padding: 2px 4px;
+          margin: 5px 5px 0 0;
         }
 
         @media screen and (max-width: 650px) {

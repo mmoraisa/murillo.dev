@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react';
 import { connectPoweredBy } from 'react-instantsearch-dom';
+import * as Language from '../../defaults/Language';
 
 const BlogSearchPoweredBy = () => {
   return (
     <Fragment>
-      <div className="blog-search-powered-by">
-        Search powered by <a href="https://www.algolia.com" target="_blank">Algolia</a>
-      </div>
+      <Language.Consumer>
+        {({ translation }) => (
+          <div className="blog-search-powered-by">
+            {`${translation.topBar.searchPoweredBy} `}<a href="https://www.algolia.com" target="_blank">Algolia</a>
+          </div>
+        )}
+      </Language.Consumer>
       <style jsx>{`
 
         .blog-search-powered-by {

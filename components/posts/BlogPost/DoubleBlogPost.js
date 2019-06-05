@@ -18,13 +18,23 @@ const DoubleBlogPost = ({ even, post }) => {
             <div className="post__content__separator"></div>
             <span className="post__content__description">{post.fields.description}</span>
           </div>
-          <div className="post__image"></div>
+          {
+            post.fields.heroImage.fields.file &&
+            post.fields.heroImage.fields.file.url &&
+            post.fields.heroImage.fields.file.url.length && (
+              <div
+                className="post__image"
+                style={{
+                  background: `url(${post.fields.heroImage.fields.file.url}?w=300&h=300&fit=thumb)`,
+                }}>
+              </div>
+            )
+          }
         </div>
       </Link>
       <style jsx>{`
 
         .post {
-          background: red;
           display: flex;
           transform: scale(1);
           transition: .1s all ease;
@@ -86,7 +96,6 @@ const DoubleBlogPost = ({ even, post }) => {
         }
 
         .post__image {
-          background: url(${post.fields.heroImage.fields.file.url}?w=300&h=300&fit=thumb);
           background-size: cover;
           background-position: center;
         }

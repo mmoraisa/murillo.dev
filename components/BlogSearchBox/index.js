@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import BlogSearchPoweredBy from '../BlogSearchPoweredBy';
+import * as Language from '../../defaults/Language';
 
 const BlogSearchBox = ({ currentRefinement, isSearchStalled, refine, setIsLoading }) => {
 
@@ -10,16 +11,20 @@ const BlogSearchBox = ({ currentRefinement, isSearchStalled, refine, setIsLoadin
 
   return (
     <Fragment>
-      <form noValidate action="" onSubmit={(evt) => { evt.preventDefault() }} role="search">
-        <input
-          className={isSearchStalled ? '--is-search-stalled' : ''}
-          type="search"
-          value={currentRefinement}
-          onChange={event => refine(event.currentTarget.value)}
-          placeholder="search in blog..."
-        />
-        <BlogSearchPoweredBy />
-      </form>
+      <Language.Consumer>
+        {({ locale, translation }) => (
+          <form noValidate action="" onSubmit={(evt) => { evt.preventDefault() }} role="search">
+            <input
+              className={isSearchStalled ? '--is-search-stalled' : ''}
+              type="search"
+              value={currentRefinement}
+              onChange={event => refine(event.currentTarget.value)}
+              placeholder={translation.topBar.searchInBlog}
+            />
+            <BlogSearchPoweredBy />
+          </form>
+        )}
+      </Language.Consumer>
       <style jsx>{`
 
         input[type="search"] {
