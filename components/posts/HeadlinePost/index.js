@@ -63,13 +63,20 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
             }
 
             .headline-post__info__span {
+              font-size: 1.3vw;
+              line-height: 1.3vw;
               text-transform: uppercase;
+            }
+
+            .headline-post__description {
+              font-size: 1.3vw;
+              line-height: 1.3vw;
             }
 
             .headline-post__info__title {
               margin: 10px 0;
-              font-size: 36px;
-              line-height: 36px;
+              font-size: 2vw;
+              line-height: 2vw;
             }
 
             @media screen and (max-width: 900px) {
@@ -88,6 +95,21 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
 
               .headline-post:nth-child(even) {
                 margin-top: initial;
+              }
+
+              .headline-post__description {
+                font-size: 4vw;
+                line-height: 4vw;
+              }
+
+              .headline-post__info__span {
+                font-size: 5vw;
+                line-height: 5vw;
+              }
+
+              .headline-post__info__title {
+                font-size: 8vw;
+                line-height: 8vw;
               }
 
             }
