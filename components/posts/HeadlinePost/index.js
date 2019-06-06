@@ -8,7 +8,7 @@ const HeadlinePost = ({ description, imageUrl, slug, tags, title }) => {
     <Language.Consumer>
       {({ locale }) => (
         <Fragment>
-          <Link href={`${locale}/blog/${slug}`}>
+          <Link href={`${window.location.origin}/${locale}/blog/${slug}`}>
             <li className="headline-post" data-aos="fade-up">
               <div className="headline-post__info">
                 <div className="headline-post__upper-info">

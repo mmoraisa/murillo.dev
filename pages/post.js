@@ -92,7 +92,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
             <div className="show-more" data-aos="fade-up">
               <h3>{translation.post.showMoreTitle}</h3>
               <span>{translation.post.showMoreText}</span>
-              <Link href={`/${locale}/blog`}>
+              <Link href={`../../${locale}/blog`}>
                 <button>{translation.post.viewBlog}</button>
               </Link>
             </div>

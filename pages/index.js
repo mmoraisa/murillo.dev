@@ -114,7 +114,12 @@ const Index = ({ router }) => {
               <div className="latest-posts__show-more" data-aos="fade-up">
                 <h3>{translation.index.showMoreTitle}</h3>
                 <span>{translation.index.showMoreText}</span>
-                <Link href={`${router.query.locale || DEFAULT_LANGUAGE}/blog`}>
+                <Link
+                  href={(
+                    router.query.locale
+                    ? 'blog'
+                    : `${locale || DEFAULT_LANGUAGE}/blog`
+                  )}>
                   <button>{translation.index.viewBlog}</button>
                 </Link>
               </div>
@@ -130,6 +135,7 @@ const Index = ({ router }) => {
                       key={post.sys.id}
                       description={post.fields.description}
                       imageUrl={post.fields.heroImage.fields.file.url}
+                      router={router}
                       slug={post.fields.slug}
                       tags={post.fields.tags}
                       title={post.fields.title}

@@ -8,7 +8,7 @@ const BlogSearchHit = ({ hit }) => {
       <Language.Consumer>
         {({ locale }) => (
           hit.fields.slug &&
-          <Link href={`/${locale}/blog/${hit.fields.slug[locale]}`}>
+          <Link href={`${window.location.origin}/${locale}/blog/${hit.fields.slug[locale]}`}>
             <div className="blog-search-hit">
               <span className="blog-search-hit__title">{hit.fields.title[locale]}</span>
               <span className="blog-search-hit__description">{hit.fields.description[locale]}</span>
