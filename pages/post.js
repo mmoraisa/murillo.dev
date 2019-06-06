@@ -18,7 +18,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
     AOS.init();
     document.documentElement.setAttribute(
       'lang',
-      router.query.lang || DEFAULT_LANGUAGE
+      router.query.locale || DEFAULT_LANGUAGE
     );
   }, []);
 
@@ -33,7 +33,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
 
   return (
     <Language.Consumer>
-      {({ translation }) => (
+      {({ locale, translation }) => (
         <Fragment>
           <Head>
             <title>{post.fields.title} - Murillo de Morais Blog</title>
@@ -92,7 +92,7 @@ const Post = withRouter(({ errorCode, post, router }) => {
             <div className="show-more" data-aos="fade-up">
               <h3>{translation.post.showMoreTitle}</h3>
               <span>{translation.post.showMoreText}</span>
-              <Link href="/blog">
+              <Link href={`/${locale}/blog`}>
                 <button>{translation.post.viewBlog}</button>
               </Link>
             </div>

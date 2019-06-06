@@ -21,7 +21,7 @@ const Blog = ({ router }) => {
     client.getEntries({
       content_type: 'blogPost',
       order: '-sys.createdAt',
-      locale: router.query.lang || DEFAULT_LANGUAGE,
+      locale: router.query.locale || DEFAULT_LANGUAGE,
     })
     .then(function(response) {
       setPosts(response.items);
@@ -29,7 +29,7 @@ const Blog = ({ router }) => {
 
     document.documentElement.setAttribute(
       'lang',
-      router.query.lang || DEFAULT_LANGUAGE
+      router.query.locale || DEFAULT_LANGUAGE
     );
 
   }, []);

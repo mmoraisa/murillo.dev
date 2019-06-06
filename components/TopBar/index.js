@@ -23,12 +23,12 @@ const TopBar = () => {
             <nav>
               <ul>
                 <li>
-                  <Link prefetch href="/">
+                  <Link prefetch href={`/${locale}`}>
                     <a>{translation.topBar.home}</a>
                   </Link>
                 </li>
                 <li>
-                  <Link prefetch href="/blog">
+                  <Link prefetch href={`/${locale}/blog`}>
                     <a>{translation.topBar.blog}</a>
                   </Link>
                 </li>

@@ -9406,11 +9406,8 @@ function (_App) {
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_6__["Container"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_defaults_Language__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
-        locale: router.query.lang || _defaults_Languages__WEBPACK_IMPORTED_MODULE_9__["DEFAULT_LANGUAGE"]
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_defaults_Language__WEBPACK_IMPORTED_MODULE_8__["Consumer"], null, function (_ref) {
-        var locale = _ref.locale;
-        return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Component, pageProps);
-      })));
+        locale: router.query.locale || _defaults_Languages__WEBPACK_IMPORTED_MODULE_9__["DEFAULT_LANGUAGE"]
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Component, pageProps)));
     }
   }]);
 

@@ -20,7 +20,7 @@ const Index = ({ router }) => {
     AOS.init();
     document.documentElement.setAttribute(
       'lang',
-      router.query.lang || DEFAULT_LANGUAGE
+      router.query.locale || DEFAULT_LANGUAGE
     );
   }, []);
 
@@ -37,7 +37,7 @@ const Index = ({ router }) => {
       content_type: 'blogPost',
       limit: 3,
       order: '-sys.createdAt',
-      locale: router.query.lang || DEFAULT_LANGUAGE,
+      locale: router.query.locale || DEFAULT_LANGUAGE,
     })
     .then(function(response) {
       setLatestPosts(response.items);
@@ -114,7 +114,7 @@ const Index = ({ router }) => {
               <div className="latest-posts__show-more" data-aos="fade-up">
                 <h3>{translation.index.showMoreTitle}</h3>
                 <span>{translation.index.showMoreText}</span>
-                <Link href="blog">
+                <Link href={`${router.query.locale || DEFAULT_LANGUAGE}/blog`}>
                   <button>{translation.index.viewBlog}</button>
                 </Link>
               </div>

@@ -8,12 +8,8 @@ class MyApp extends App {
     const { router, Component, pageProps } = this.props;
     return (
       <Container>
-        <Language.Provider locale={router.query.lang || DEFAULT_LANGUAGE}>
-          <Language.Consumer>
-            {({ locale }) => (
-              <Component {...pageProps} />
-            )}
-          </Language.Consumer>
+        <Language.Provider locale={router.query.locale || DEFAULT_LANGUAGE}>
+          <Component {...pageProps} />
         </Language.Provider>
       </Container>
     );

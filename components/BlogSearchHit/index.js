@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
-import { ENGLISH } from '../../defaults/Languages';
 import * as Language from '../../defaults/Language';
 
 const BlogSearchHit = ({ hit }) => {
@@ -9,7 +8,7 @@ const BlogSearchHit = ({ hit }) => {
       <Language.Consumer>
         {({ locale }) => (
           hit.fields.slug &&
-          <Link href={`/blog/${hit.fields.slug[locale]}`}>
+          <Link href={`/${locale}/blog/${hit.fields.slug[locale]}`}>
             <div className="blog-search-hit">
               <span className="blog-search-hit__title">{hit.fields.title[locale]}</span>
               <span className="blog-search-hit__description">{hit.fields.description[locale]}</span>
