@@ -108,7 +108,7 @@ const TripleBlogPost = ({ post }) => {
             }
 
             .post__video {
-              width: 300px;
+              width: 300px !important;
               padding: 0 !important;
             }
 
@@ -121,7 +121,7 @@ const TripleBlogPost = ({ post }) => {
             }
 
             .post__video__content {
-              width: calc(100% + 60px);
+              width: 100%;
               height: 100%;
             }
 
