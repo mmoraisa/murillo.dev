@@ -21,8 +21,26 @@ const TripleBlogPost = ({ post }) => {
                 <div className="post__content__separator"></div>
                 <span className="post__content__description">{post.fields.description}</span>
               </div>
-              <div className="post__image"></div>
-              <div className="post__video"></div>
+              <div
+                className="post__image"
+                style={{
+                  background: `url(${post.fields.heroImage.fields.file.url}?w=300&h=300&fit=thumb)`,
+                  backgroundSize: 'cover',
+                }}>
+              </div>
+              <div className="post__video">
+                <div className="post__video__backdrop"></div>
+                {
+                  post.fields.video && post.fields.video.length &&
+                  <iframe
+                    className="post__video__content"
+                    src={post.fields.video}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen>
+                  </iframe>
+                }
+              </div>
             </div>
           </Link>
           <style jsx>{`
@@ -43,7 +61,8 @@ const TripleBlogPost = ({ post }) => {
 
             .post > div {
               width: 240px;
-              height: 240px;
+              min-height: 240px;
+              height: auto;
               padding: 30px;
             }
 
@@ -89,7 +108,20 @@ const TripleBlogPost = ({ post }) => {
             }
 
             .post__video {
-              background: #374e67;
+              padding: 0 !important;
+            }
+
+            .post__video__backdrop {
+              position: absolute;
+              width: 300px;
+              height: 100%;
+              background: #005f8854;
+              pointer-events: none;
+            }
+
+            .post__video__content {
+              width: calc(100% + 60px);
+              height: 100%;
             }
 
             @media screen and (max-width: 970px) {

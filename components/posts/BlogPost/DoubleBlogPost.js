@@ -29,6 +29,7 @@ const DoubleBlogPost = ({ even, post }) => {
                     className="post__image"
                     style={{
                       background: `url(${post.fields.heroImage.fields.file.url}?w=300&h=300&fit=thumb)`,
+                      backgroundSize: 'cover',
                     }}>
                   </div>
                 )
@@ -57,7 +58,8 @@ const DoubleBlogPost = ({ even, post }) => {
 
             .post > div {
               width: 240px;
-              height: 240px;
+              min-height: 240px;
+              height: auto;
               padding: 30px;
             }
 
