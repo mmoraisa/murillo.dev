@@ -74,7 +74,7 @@ const Blog = ({ router }) => {
 
         .blog__posts {
           width: 900px;
-          margin: auto;
+          margin: auto auto 70px auto;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
