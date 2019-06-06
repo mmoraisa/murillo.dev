@@ -108,6 +108,7 @@ const TripleBlogPost = ({ post }) => {
             }
 
             .post__video {
+              width: 300px;
               padding: 0 !important;
             }
 
