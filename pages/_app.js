@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
-import { withRouter } from 'next/router'
+import Router from 'next/router';
+import withGA from "next-ga";
 import * as Language from '../defaults/Language';
 import { DEFAULT_LANGUAGE } from '../defaults/Languages';
 
@@ -16,4 +17,4 @@ class MyApp extends App {
   }
 }
 
-export default withRouter(MyApp);
+export default withGA("UA-141673772-1", Router)(MyApp);

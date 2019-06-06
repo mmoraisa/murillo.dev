@@ -1123,8 +1123,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _defaults_Language__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../defaults/Language */ "./defaults/Language.js");
-/* harmony import */ var _defaults_Languages__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../defaults/Languages */ "./defaults/Languages.js");
+/* harmony import */ var next_ga__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next-ga */ "next-ga");
+/* harmony import */ var next_ga__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_ga__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _defaults_Language__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../defaults/Language */ "./defaults/Language.js");
+/* harmony import */ var _defaults_Languages__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../defaults/Languages */ "./defaults/Languages.js");
+
 
 
 
@@ -1154,8 +1157,8 @@ function (_App) {
           router = _this$props.router,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
-      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_6__["Container"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_defaults_Language__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
-        locale: router.query.locale || _defaults_Languages__WEBPACK_IMPORTED_MODULE_9__["DEFAULT_LANGUAGE"]
+      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_6__["Container"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_defaults_Language__WEBPACK_IMPORTED_MODULE_9__["Provider"], {
+        locale: router.query.locale || _defaults_Languages__WEBPACK_IMPORTED_MODULE_10__["DEFAULT_LANGUAGE"]
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Component, pageProps)));
     }
   }]);
@@ -1163,7 +1166,7 @@ function (_App) {
   return MyApp;
 }(next_app__WEBPACK_IMPORTED_MODULE_6___default.a);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(MyApp));
+/* harmony default export */ __webpack_exports__["default"] = (next_ga__WEBPACK_IMPORTED_MODULE_8___default()("UA-141673772-1", next_router__WEBPACK_IMPORTED_MODULE_7___default.a)(MyApp));
 
 /***/ }),
 
@@ -1297,6 +1300,17 @@ module.exports = require("core-js/library/fn/symbol");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/symbol/iterator");
+
+/***/ }),
+
+/***/ "next-ga":
+/*!**************************!*\
+  !*** external "next-ga" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-ga");
 
 /***/ }),
 
