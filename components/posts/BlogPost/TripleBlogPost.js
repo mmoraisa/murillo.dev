@@ -11,9 +11,9 @@ const TripleBlogPost = ({ post }) => {
 
   return (
     <Language.Consumer>
-      {({ location }) => (
+      {({ locale }) => (
         <Fragment>
-          <Link prefetch href={`/${location}/blog/${post.fields.slug}`}>
+          <Link prefetch href={`/${locale}/blog/${post.fields.slug}`}>
             <div className="post" data-aos="fade-up">
               <div className="post__content">
                 <span className="post__content__date">18/05/2019</span>
